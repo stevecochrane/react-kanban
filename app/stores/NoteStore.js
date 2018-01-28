@@ -6,11 +6,11 @@ export default class NoteStore {
 			{
 				id: uuid.v4(),
 				task: "Learn React"
-			};
+			},
 			{
 				id: uuid.v4(),
 				task: "Do laundry"
 			}
 		];
 	}
-};
+}
