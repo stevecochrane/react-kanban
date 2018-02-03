@@ -24,4 +24,14 @@ export default class LaneStore {
 			})
 		});
 	}
+	detachFromLane({laneId, noteId}) {
+		this.setState({
+			lanes: this.lanes.map(lane => {
+				if (lane.id === laneId) {
+					lane.notes = lane.notes.filter(note => note !== noteId);
+				}
+				return lane;
+			})
+		});
+	}
 }
