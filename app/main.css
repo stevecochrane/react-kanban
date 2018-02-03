@@ -3,9 +3,57 @@ body {
 	font-family: sans-serif;
 }
 
-.add-note {
+.lane {
+	background-color: #efefef;
+	border: 1px solid #ccc;
+	border-radius: 0.5em;
+	display: inline-block;
+	margin: 1em;
+	min-width: 10em;
+	vertical-align: top;
+}
+
+.lane-header {
+	background-color: #333;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+	color: #efefef;
+	overflow: auto;
+	padding: 1em;
+}
+
+.lane-name {
+	float: left;
+}
+
+.lane-add-note {
+	float: left;
+	margin-right: 0.5em;
+}
+
+.lane-delete {
+	float: right;
+	margin-left: 0.5em;
+	visibility: hidden;
+}
+
+.lane-header:hover .lane-delete {
+	visibility: visible;
+}
+
+.add-lane,
+.lane-add-note button {
 	background-color: #fdfdfd;
 	border: 1px solid #ccc;
+	cursor: pointer;
+}
+
+.lane-delete button {
+	background-color: transparent;
+	border: 0;
+	color: white;
+	cursor: pointer;
+	padding: 0;
 }
 
 .notes {
