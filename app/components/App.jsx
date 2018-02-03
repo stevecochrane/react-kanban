@@ -28,9 +28,7 @@ class App extends React.Component {
 	}
 	deleteNote = (id, e) => {
 		e.stopPropagation();
-		this.setState({
-			notes: this.state.notes.filter(note => note.id !== id)
-		});
+		this.props.NoteActions.delete(id);
 	}
 	activateNoteEdit = (id) => {
 		this.setState({
