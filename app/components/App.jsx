@@ -8,7 +8,7 @@ const App = ({LaneActions, lanes}) => {
 	const addLane = () => {
 		LaneActions.create({
 			id: uuid.v4(),
-			name: "New Note"
+			name: "New Lane"
 		});
 	};
 
