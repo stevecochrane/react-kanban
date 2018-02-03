@@ -11,4 +11,4 @@ export default function(alt, storage, storageName) {
 			storage.set(storageName, alt.takeSnapshot());
 		}
 	});
-};
+}
