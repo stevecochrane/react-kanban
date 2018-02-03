@@ -2,6 +2,7 @@ import React from "react";
 import uuid from "uuid";
 import Notes from "./Notes";
 import connect from "../libs/connect";
+import NoteActions from "../actions/NoteActions";
 
 class App extends React.Component {
 	render() {
@@ -20,12 +21,10 @@ class App extends React.Component {
 		);
 	}
 	addNote = () => {
-		this.setState({
-			notes: this.state.notes.concat([{
-				id: uuid.v4(),
-				task: "New task"
-			}])
-		})
+		this.props.NoteActions.create({
+			id: uuid.v4(),
+			task: "New task"
+		});
 	}
 	deleteNote = (id, e) => {
 		e.stopPropagation();
@@ -58,4 +57,6 @@ class App extends React.Component {
 
 export default connect(({notes}) => ({
 	notes
-}))(App);
+}), {
+	NoteActions
+})(App);
