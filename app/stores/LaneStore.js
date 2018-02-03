@@ -8,7 +8,7 @@ export default class LaneStore {
 	create(lane) {
 		lane.notes = lane.notes || [];
 		this.setState({
-			lanes: this.lanes.concat(lane);
+			lanes: this.lanes.concat(lane)
 		});
 	}
 }
