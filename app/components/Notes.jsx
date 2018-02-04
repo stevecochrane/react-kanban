@@ -3,7 +3,7 @@ import Note from "./Note";
 import Editable from "./Editable";
 import LaneActions from "../actions/LaneActions";
 
-export default ({notes, onNoteClick=() => {}, onEdit=() => {}, onDelete=() => {}}) => (
+const Notes = ({notes, onNoteClick, onEdit, onDelete}) => (
 	<ul className="notes">{notes.map(({id, editing, task}) =>
 		<li key={id}>
 			<Note
@@ -26,3 +26,19 @@ export default ({notes, onNoteClick=() => {}, onEdit=() => {}, onDelete=() => {}
 		</li>
 	)}</ul>
 );
+
+Notes.propTypes = {
+	notes: React.PropTypes.array,
+	onEdit: React.PropTypes.func,
+	onDelete: React.PropTypes.func,
+	onNoteClick: React.PropTypes.func
+};
+
+Notes.defaultProps = {
+	notes: [],
+	onEdit: () => {},
+	onDelete: () => {},
+	onNoteClick: () => {}
+};
+
+export default Notes;
