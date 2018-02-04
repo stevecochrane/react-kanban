@@ -5,7 +5,13 @@ import Editable from "./Editable";
 export default ({notes, onNoteClick=() => {}, onEdit=() => {}, onDelete=() => {}}) => (
 	<ul className="notes">{notes.map(({id, editing, task}) =>
 		<li key={id}>
-			<Note className="note" onClick={onNoteClick.bind(null, id)}>
+			<Note
+				className="note"
+				id={id}
+				onClick={onNoteClick.bind(null, id)}
+				onMove={({ sourceId, targetId }) =>
+					console.log("moving from", sourceId, " to ", targetId)
+				}>
 				<Editable
 					className="editable"
 					editing={editing}
