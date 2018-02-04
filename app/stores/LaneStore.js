@@ -49,4 +49,7 @@ export default class LaneStore {
 			})
 		});
 	}
+	move({sourceId, targetId}) {
+		console.log(`source: ${sourceId}, target: ${targetId}`);
+	}
 }
