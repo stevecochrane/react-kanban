@@ -23,6 +23,20 @@ const Note = ({
 	);
 };
 
+Note.propTypes = {
+	id: React.PropTypes.string.isRequired,
+	editing: React.PropTypes.bool,
+	connectDragSource: React.PropTypes.func,
+	connectDropTarget: React.PropTypes.func,
+	isDragging: React.PropTypes.bool,
+	onMove: React.PropTypes.func,
+	children: React.PropTypes.node
+};
+
+Note.defaultProps = {
+	onMove: () => {}
+};
+
 const noteSource = {
 	beginDrag(props) {
 		return {
