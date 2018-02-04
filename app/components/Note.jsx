@@ -6,15 +6,17 @@ import ItemTypes from "../constants/itemTypes";
 const Note = ({
 	connectDragSource,
 	connectDropTarget,
+	isDragging,
+	isOver,
 	onMove,
 	id,
 	children,
 	...props
 }) => {
 	return compose(connectDragSource, connectDropTarget)(
-		<div {...props}>
-			{children}
-		</div>
+		<div style={{
+			opacity: isDragging || isOver ? 0 : 1
+		}} {...props}>{children}</div>
 	);
 };
 
@@ -39,10 +41,12 @@ const noteTarget = {
 };
 
 export default compose(
-	DragSource(ItemTypes.NOTE, noteSource, connect => ({
-		connectDragSource: connect.dragSource()
+	DragSource(ItemTypes.NOTE, noteSource, (connect, monitor) => ({
+		connectDragSource: connect.dragSource(),
+		isDragging: monitor.isDragging()
 	})),
-	DropTarget(ItemTypes.NOTE, noteTarget, connect => ({
-		connectDropTarget: connect.dropTarget()
+	DropTarget(ItemTypes.NOTE, noteTarget, (connect, monitor) => ({
+		connectDropTarget: connect.dropTarget(),
+		isOver: monitor.isOver()
 	}))
 )(Note);
